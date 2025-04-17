@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>We're Getting Married!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #fff8f0;
+      color: #333;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      background: #ffede0;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-top: 0;
+      color: #7a5c4f;
+    }
+
+    .date {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+
+    .countdown {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .rsvp-button {
+      margin-top: 40px;
+      padding: 12px 24px;
+      background-color: #e8927c;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .rsvp-button:hover {
+      background-color: #d3705a;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Anaya & Rohan</h1>
+    <h2>Are Getting Married!</h2>
+    <div class="date">July 12, 2025</div>
+    <div class="countdown" id="countdown"></div>
+    <button class="rsvp-button" onclick="alert('RSVP coming soon!')">RSVP</button>
+  </div>
+
+  <footer>
+    With love, from our hearts to yours 💖
+  </footer>
+
+  <script>
+    // Countdown timer
+    const weddingDate = new Date("July 12, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "It's the big day! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      countdownEl.innerHTML = `Only ${days} days to go!`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 86400000); // Update every day
+  </script>
+</body>
+</html>
